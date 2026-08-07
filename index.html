@@ -21,14 +21,13 @@
   body{
     font-family:'Fredoka', sans-serif;
     color:var(--ink);
-    background: linear-gradient(160deg,#3a1c5a 0%, #8e5fa3 30%, #e84393 62%, #ff9f6f 100%);
+    background: linear-gradient(160deg,#eaf6ff 0%, #d3ecfa 30%, #b7e0f5 62%, #8fcbe8 100%);
     background-attachment:fixed;
     min-height:100vh;
     overflow-x:hidden;
     position:relative;
   }
   h1,h2,h3{ font-family:'Baloo 2', sans-serif; margin:0; }
-
   /* ---------- floating sparkles background ---------- */
   .sparkle-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
   .sparkle{
@@ -43,26 +42,23 @@
     90%{ opacity:.7; }
     100%{ transform: translateY(-110vh) rotate(360deg); opacity:0; }
   }
-
   .wrap{ position:relative; z-index:1; max-width:880px; margin:0 auto; padding:32px 18px 80px; }
-
   /* ---------- hero ---------- */
   .hero{ text-align:center; padding:38px 16px 26px; }
   .crown{ font-size:2.6rem; display:inline-block; animation: bob 2.4s ease-in-out infinite; }
   @keyframes bob{ 0%,100%{ transform: translateY(0) rotate(-4deg);} 50%{ transform: translateY(-10px) rotate(4deg);} }
   .hero h1{
-    color:#fff; font-size: clamp(2rem, 6vw, 3.2rem); font-weight:800;
-    text-shadow: 0 4px 18px rgba(0,0,0,.25);
+    color:#2c3e50; font-size: clamp(2rem, 6vw, 3.2rem); font-weight:800;
+    text-shadow: 0 2px 10px rgba(255,255,255,.5);
     opacity:0; transform: scale(.7);
     animation: popIn .8s cubic-bezier(.34,1.56,.64,1) .15s forwards;
   }
   .hero .sub{
-    color:#fff0f7; font-size:1.15rem; margin-top:10px; font-weight:500;
+    color:#3d5a6c; font-size:1.15rem; margin-top:10px; font-weight:500;
     opacity:0; animation: fadeUp .8s ease .5s forwards;
   }
   @keyframes popIn{ to{ opacity:1; transform:scale(1); } }
   @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
-
   /* ---------- cards ---------- */
   .card{
     background: var(--cream);
@@ -75,21 +71,17 @@
   }
   .card:nth-of-type(2){ animation-delay:.15s; }
   .card:nth-of-type(3){ animation-delay:.3s; }
-
   .card h2{ color:var(--pink-dark); font-size:1.6rem; display:flex; align-items:center; gap:10px; }
   .card p{ line-height:1.55; font-size:1.03rem; }
-
   .detail-row{ display:flex; gap:14px; align-items:center; margin:14px 0; font-size:1.05rem; flex-wrap:wrap; }
   .detail-row .ic{ font-size:1.4rem; }
   .placeholder{
     background: #fff3cd; border:2px dashed #e0a800; color:#7a5c00;
     padding:3px 10px; border-radius:10px; font-weight:600;
   }
-
   .divider{
-    text-align:center; margin:6px 0 18px; color:#fff; font-size:1.4rem; letter-spacing:6px; opacity:.85;
+    text-align:center; margin:6px 0 18px; color:#3d5a6c; font-size:1.4rem; letter-spacing:6px; opacity:.85;
   }
-
   /* ---------- princess grid ---------- */
   .rules-box{
     background:#fbeaff; border-radius:18px; padding:16px 20px; margin:16px 0 22px;
@@ -99,7 +91,6 @@
   .progress-label{ font-size:.92rem; color:#7a5c8a; margin-bottom:6px; font-weight:600; }
   .progress-bar{ background:#eee; border-radius:20px; height:14px; overflow:hidden; }
   .progress-fill{ height:100%; background: linear-gradient(90deg,var(--pink),var(--purple)); width:0%; transition: width .6s ease; }
-
   .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:16px; }
   .p-card{
     position:relative; border-radius:18px; padding:16px 12px 14px; text-align:center;
@@ -113,6 +104,7 @@
     width:60px; height:60px; border-radius:50%; margin:0 auto;
     display:flex; align-items:center; justify-content:center; font-size:1.7rem;
     box-shadow: inset 0 0 0 3px rgba(255,255,255,.7), 0 4px 10px rgba(0,0,0,.16);
+    overflow:hidden;
   }
   .p-avatar svg{ width:30px; height:30px; overflow:visible; }
   .p-avatar img{ width:100%; height:100%; object-fit:cover; border-radius:50%; }
@@ -125,7 +117,6 @@
   }
   .p-taken-tag.host-tag{ background: linear-gradient(90deg,#d4af37,#f0cf6b); color:#4a3200; font-weight:700; }
   .checkmark{ position:absolute; top:6px; right:8px; color:#28a745; font-size:1.1rem; }
-
   /* ---------- modal ---------- */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(30,10,40,.55); backdrop-filter: blur(2px);
@@ -154,14 +145,11 @@
   .modal-msg{ font-size:.9rem; min-height:18px; margin-top:4px; font-weight:600; }
   .modal-msg.err{ color:#c0392b; }
   .modal-msg.ok{ color:#1e824c; }
-
   .banner{
     background:#fff3cd; border:2px dashed #e0a800; color:#7a5c00; border-radius:14px;
     padding:10px 16px; font-size:.9rem; margin-bottom:16px; text-align:center;
   }
-
-  footer{ text-align:center; color:#fff0f7; font-size:.9rem; margin-top:30px; opacity:.9; }
-
+  footer{ text-align:center; color:#3d5a6c; font-size:.9rem; margin-top:30px; opacity:.9; }
   /* confetti */
   .confetti-piece{
     position:fixed; top:-10px; width:9px; height:9px; z-index:60; pointer-events:none;
@@ -170,54 +158,42 @@
 </style>
 </head>
 <body>
-
 <div class="sparkle-layer" id="sparkleLayer"></div>
-
 <div class="wrap">
-
   <div class="hero">
     <div class="crown">👑</div>
     <h1>Josi está fazendo 34 anos!</h1>
     <div class="sub">E vamos comemorar do jeito mais mágico possível: na Disney! ✨🏰</div>
   </div>
-
   <div class="card">
     <h2>🎂 Jantar de Aniversário</h2>
     <p>Um jantar especial para celebrar mais um ano da nossa Josi, rodeados de quem a gente ama — na cidade mais mágica do mundo.</p>
     <div class="detail-row"><span class="ic">📅</span> Sexta-feira, <strong>25 de setembro</strong></div>
     <div class="detail-row"><span class="ic">🕗</span> Horário: <strong>19h</strong></div>
-    <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--pink-dark); text-decoration:none; border-bottom:2px solid var(--pink-dark);">Miller's</a></strong> — Orlando, Florida, EUA <span class="placeholder">local pode ser alterado</span></div>
+    <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--pink-dark); text-decoration:none; border-bottom:2px solid var(--pink-dark);">Miller's</a></strong> — Orlando, Florida, EUA (<strong>local pode ser alterado</strong>)</div>
     <div class="detail-row"><span class="ic">💌</span> Confirme sua presença pra garantirmos seu lugar na mesa!</div>
   </div>
-
   <div class="divider">✦ ✦ ✦</div>
-
   <div class="card">
     <h2>🏰 Dia Real no Epcot</h2>
     <p>No dia seguinte, <strong>sábado, 26 de setembro</strong>, vamos todos juntos para o Epcot! E como adulto não pode ir fantasiado no parque 😅, a brincadeira vai ser outra:</p>
-
     <div class="rules-box">
       💫 <strong>Cada convidado escolhe UMA personagem Disney</strong> e no dia do Epcot usa roupas nas <strong>cores e acessórios</strong> dela — sem fantasia, só estilo!<br><br>
       🔒 <strong>Regra de ouro:</strong> cada personagem só pode ser escolhida por uma pessoa. É por ordem de chegada — quem escolhe primeiro garante a personagem, e ela trava automaticamente pros próximos.<br><br>
     </div>
-
     <div id="demoBanner" class="banner" style="display:none;">
       🔧 Modo demonstração: as escolhas abaixo ainda não estão conectadas à planilha real, então não ficam salvas pra outras pessoas verem. Veja o arquivo <strong>COMO-CONFIGURAR.md</strong> pra ativar o modo ao vivo.
     </div>
-
     <div class="progress-wrap">
       <div class="progress-label" id="progressLabel">Carregando personagens...</div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
-
     <div class="grid" id="princessGrid"></div>
   </div>
-
   <footer>
     Feito com 💖 para a Josi · Confirme presença e escolha sua personagem até <strong>18/09</strong>
   </footer>
 </div>
-
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <h3 id="modalTitle">Escolher personagem</h3>
@@ -230,7 +206,6 @@
     </div>
   </div>
 </div>
-
 <script>
 /* =========================================================
    CONFIGURAÇÃO
@@ -243,7 +218,6 @@ const CONFIG = {
   API_URL: "https://script.google.com/macros/s/AKfycbz_TYH-0rAYjT11VEq_M77bfElBRG-7SVXaMx6ebK6Xic50h6tHkiCI6WH7QSUXRlmSmA/exec"
 };
 const LIVE_MODE = CONFIG.API_URL.startsWith("http");
-
 const ICON_TEACUP = "<svg viewBox='0 0 24 24'><ellipse cx='11' cy='19' rx='9' ry='1.7' fill='#E7ECEF'/><path d='M4 9h11a1 1 0 0 1 1 1v3.5a6 6 0 0 1-6 6h-.5a6 6 0 0 1-6-6V10a1 1 0 0 1 1-1z' fill='#FFFFFF'/><ellipse cx='9.5' cy='9.9' rx='5.4' ry='1.2' fill='#3B2314'/><path d='M15.3 11h1.5a2 2 0 0 1 0 4h-1.3' fill='none' stroke='#FFFFFF' stroke-width='1.6' stroke-linecap='round'/><path d='M7.2 5c0 .8-.8 1.1-.8 1.9s.8 1.1.8 1.9M10.2 5c0 .8-.8 1.1-.8 1.9s.8 1.1.8 1.9' stroke='#FFFFFF' stroke-width='1.1' fill='none' stroke-linecap='round'/></svg>";
 const ICON_BED = "<svg viewBox='0 0 24 24'><rect x='3' y='13.5' width='18' height='4.5' rx='1' fill='#E8A0B4'/><rect x='4.5' y='9' width='5' height='4.8' rx='1.2' fill='#FFFFFF'/><rect x='3' y='12.3' width='18' height='1.6' rx='0.8' fill='#8B5A2E'/><path d='M3 18v2M21 18v2' stroke='#8B5A2E' stroke-width='1.6' stroke-linecap='round'/></svg>";
 const ICON_MINNIE = "<svg viewBox='0 0 24 24'><circle cx='12' cy='15.5' r='6.5' fill='black'/><circle cx='5.8' cy='7' r='4' fill='black'/><circle cx='18.2' cy='7' r='4' fill='black'/><path d='M7.3 9.6 12 7.4 16.7 9.6 12 12 Z' fill='#E63950'/><circle cx='12' cy='9.6' r='1.2' fill='#fff'/></svg>";
@@ -252,41 +226,39 @@ const ICON_HAT = "<svg viewBox='0 0 24 24'><ellipse cx='11.5' cy='15.6' rx='9.3'
 const ICON_GLASSES = "<svg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='7.3' cy='12.5' r='4'/><circle cx='16.7' cy='12.5' r='4'/><path d='M11.3 12.5h1.4'/><path d='M3.3 11.6 1.7 11.1'/><path d='M20.7 11.6 22.3 11.1'/></svg>";
 const LEAF = "M12 3c1.8 1 1.8 3.6 0 5.4-1.8-1.8-1.8-4.4 0-5.4z";
 const ICON_LILO_PATTERN = `<svg viewBox='0 0 24 24' fill='#F3ECD9'><path d='${LEAF}' transform='rotate(10 12 5.7)'/><path d='${LEAF}' transform='translate(-6.5 4.5) rotate(-35 12 5.7)'/><path d='${LEAF}' transform='translate(6.5 4.5) rotate(35 12 5.7)'/><path d='${LEAF}' transform='translate(-2.5 11.5) rotate(110 12 5.7)'/><path d='${LEAF}' transform='translate(4.5 11.8) rotate(-100 12 5.7)'/></svg>`;
-
 const HOST_NAME = "Josi";
-
 /* Pra colocar uma imagem PNG de cada personagem, adicione um campo
    img: "URL_DA_IMAGEM" em qualquer linha abaixo. Exemplo:
    { name:"Cinderela", colors:[...], img: "https://i.imgur.com/xxxxx.png" }
-   Sem o campo "img", o círculo fica só na cor mesmo (como está agora). */
+   Sem o campo "img", o círculo fica só na cor mesmo.
+   Se o rosto ficar cortado, adicione também imgPos:"top" pra a foto
+   ser recortada a partir de cima em vez do centro. */
 const PRINCESSES = [
   { name:"Cinderela",      colors:["#8FCBE8","#E8ECEF","#C7D3DB"], icon:"🥿", img:"https://i.imgur.com/x06CQG6.png" },
-  { name:"Branca de Neve", colors:["#F2C230","#2B4C8C","#C1272D"], icon:"🍎", img:"https://i.imgur.com/ZUz342n.png"  },
-  { name:"Aurora",         colors:["#E85B92","#D4AF37"],           icon:"🛏️", img:"https://i.imgur.com/ser9DbT.png"},
-  { name:"Ariel",          colors:["#2EC4B6","#7B4FA0","#8B1E3F"], icon:"🧜‍♀️", img:"https://i.imgur.com/FzAT4iY.png" },
+  { name:"Branca de Neve", colors:["#F2C230","#2B4C8C","#C1272D"], icon:"🍎", img:"https://i.imgur.com/ZUz342n.png", imgPos:"top" },
+  { name:"Aurora",         colors:["#E85B92","#D4AF37"],           icon:"🛏️", img:"https://i.imgur.com/ser9DbT.png", imgPos:"top" },
+  { name:"Ariel",          colors:["#2EC4B6","#7B4FA0","#8B1E3F"], icon:"🧜‍♀️", img:"https://i.imgur.com/FzAT4iY.png", imgPos:"top" },
   { name:"Bela",           colors:["#F4C430","#4A7BAE"],           icon:"☕", img:"https://i.imgur.com/uFkxBx0.png" },
   { name:"Jasmine",        colors:["#00A8A8","#D9A441"],           icon:"🧞", img:"https://i.imgur.com/1BGU5uK.png" },
-  { name:"Pocahontas",     colors:["#C1652F","#4A6B3A","#D9C29C"], icon:"🪶", img:"https://i.imgur.com/nfKToy9.png"},
+  { name:"Pocahontas",     colors:["#C1652F","#4A6B3A","#D9C29C"], icon:"🪶", img:"https://i.imgur.com/nfKToy9.png", imgPos:"top" },
   { name:"Mulan",          colors:["#C41E3A","#D4AF37","#F4A0C0"], icon:"⚔️", img:"https://i.imgur.com/uRwQEqg.png" },
   { name:"Tiana",          colors:["#0B6E4F","#D4AF37"],           icon:"🐸", img:"https://i.imgur.com/Fj1Pt9L.png" },
   { name:"Rapunzel",       colors:["#8E5FA3","#F2A6C1"],           icon:"🗼", img:"https://i.imgur.com/lyOGkFr.png" },
-  { name:"Merida",         colors:["#2E7D6B","#5A8F3C","#C1502E"], icon:"🏹", img:"https://i.imgur.com/uSEvgSV.png" },
+  { name:"Merida",         colors:["#2E7D6B","#5A8F3C","#C1502E"], icon:"🏹", img:"https://i.imgur.com/uSEvgSV.png", imgPos:"top" },
   { name:"Moana",          colors:["#E15D3E","#F4A93B","#1CA6A6"], icon:"🌊", img:"https://i.imgur.com/l4xGOBs.png" },
   { name:"Elsa",           colors:["#A9D6E5","#FFFFFF","#C7D3DB"], icon:"❄️", img:"https://i.imgur.com/NYt8nKI.png" },
-  { name:"Anna",           colors:["#0F5C3D","#C9457A","#8FCBE8"], icon:"🎀", img:"https://i.imgur.com/Oa0D34E.png" },
+  { name:"Anna",           colors:["#0F5C3D","#C9457A","#8FCBE8"], icon:"🎀", img:"https://i.imgur.com/Oa0D34E.png", imgPos:"top" },
   { name:"Minnie",         colors:["#C1272D","#FFFFFF","#1A1A1A"], icon:"🐭", img:"https://i.imgur.com/QxW1BaB.png" },
-  { name:"Margarida",      colors:["#9B7FC7","#FFFFFF"],           icon:"🐥", img:"https://i.imgur.com/M8kl2uq.png" },
+  { name:"Margarida",      colors:["#9B7FC7","#FFFFFF"],           icon:"🐥", img:"https://i.imgur.com/M8kl2uq.png", imgPos:"top" },
   { name:"Jessie",         colors:["#C1272D","#F2C230","#8B5A2B"], icon:"🤠", img:"https://i.imgur.com/B6DCy26.png" },
-  { name:"Mirabel",        colors:["#F2B705","#E8743B","#F2A6C1"], icon:"👓", img:"https://i.imgur.com/tebGA4J.jpeg" },
-  { name:"Lilo",           colors:["#C1272D","#2EC4B6","#F2C230"], icon:"🌺", img:"https://i.imgur.com/kWKmBtJ.png"  },
-  { name:"Sininho",        colors:["#3CB371","#DFF2A0"],           icon:"🧚‍♀️", img:"https://i.imgur.com/ai9Mm1p.png"  },
+  { name:"Mirabel",        colors:["#F2B705","#E8743B","#F2A6C1"], icon:"👓", img:"https://i.imgur.com/tebGA4J.jpeg", imgPos:"top" },
+  { name:"Lilo",           colors:["#C1272D","#2EC4B6","#F2C230"], icon:"🌺", img:"https://i.imgur.com/kWKmBtJ.png" },
+  { name:"Sininho",        colors:["#3CB371","#DFF2A0"],           icon:"🧚‍♀️", img:"https://i.imgur.com/ai9Mm1p.png" },
 ];
-
 let state = {}; // name -> chosenBy or ""
 PRINCESSES.forEach(p => state[p.name] = "");
 state["Cinderela"] = HOST_NAME; // já reservada para a aniversariante
 let pendingPrincess = null;
-
 /* ---------- sparkles background ---------- */
 (function sparkles(){
   const layer = document.getElementById('sparkleLayer');
@@ -302,7 +274,6 @@ let pendingPrincess = null;
     layer.appendChild(s);
   }
 })();
-
 /* ---------- render grid ---------- */
 function renderGrid(){
   const grid = document.getElementById('princessGrid');
@@ -320,9 +291,12 @@ function renderGrid(){
     const tag = !chosenBy ? '' : isHost
       ? `<div class="p-taken-tag host-tag">👑 É da ${escapeHtml(HOST_NAME)}!</div>`
       : `<div class="p-taken-tag">Escolhida por ${escapeHtml(chosenBy)}</div>`;
+    const media = p.img
+      ? `<img src="${p.img}" alt="${p.name}" style="object-position:${p.imgPos || 'center'};">`
+      : '';
     card.innerHTML = `
       ${chosenBy ? '<span class="checkmark">✓</span>' : ''}
-      <div class="p-avatar" style="background:${gradient}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : ''}</div>
+      <div class="p-avatar" style="background:${gradient}">${media}</div>
       <div class="p-name">${p.name}</div>
       <div class="p-swatches">${p.colors.map(c=>`<span class="swatch" style="background:${c}"></span>`).join('')}</div>
       ${tag}
@@ -337,13 +311,11 @@ function renderGrid(){
   document.getElementById('progressFill').style.width =
     Math.round((takenCount/PRINCESSES.length)*100) + '%';
 }
-
 function escapeHtml(str){
   const d = document.createElement('div');
   d.textContent = str;
   return d.innerHTML;
 }
-
 /* ---------- modal ---------- */
 const overlay = document.getElementById('modalOverlay');
 function openModal(princessName){
@@ -360,7 +332,6 @@ function openModal(princessName){
 function closeModal(){ overlay.classList.remove('open'); pendingPrincess = null; }
 document.getElementById('cancelBtn').addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
-
 document.getElementById('confirmBtn').addEventListener('click', async () => {
   const name = document.getElementById('guestName').value.trim();
   const msg = document.getElementById('modalMsg');
@@ -371,7 +342,6 @@ document.getElementById('confirmBtn').addEventListener('click', async () => {
   }
   msg.textContent = 'Confirmando...';
   msg.className = 'modal-msg';
-
   const result = await choosePrincess(name, pendingPrincess);
   if(result.success){
     msg.textContent = `🎉 ${pendingPrincess} é sua, ${name}!`;
@@ -385,7 +355,6 @@ document.getElementById('confirmBtn').addEventListener('click', async () => {
     renderGrid();
   }
 });
-
 /* ---------- backend calls ---------- */
 async function fetchStatus(){
   if(!LIVE_MODE) return;
@@ -399,7 +368,6 @@ async function fetchStatus(){
     console.warn('Não foi possível buscar status da planilha', err);
   }
 }
-
 async function choosePrincess(name, princess){
   if(princess === "Cinderela"){
     return { success:false, error:`Cinderela já é da ${HOST_NAME} — escolhe outra personagem!` };
@@ -419,7 +387,6 @@ async function choosePrincess(name, princess){
     return { success:false, error:'Erro de conexão. Tente novamente em alguns segundos.' };
   }
 }
-
 /* ---------- confetti ---------- */
 function burstConfetti(){
   const colors = ['#ff6fa5','#f0b429','#1ca6a6','#8e5fa3','#ff9f6f'];
@@ -440,7 +407,6 @@ function burstConfetti(){
     setTimeout(()=>el.remove(), dur+50);
   }
 }
-
 /* ---------- init ---------- */
 document.getElementById('demoBanner').style.display = LIVE_MODE ? 'none' : 'block';
 renderGrid();
