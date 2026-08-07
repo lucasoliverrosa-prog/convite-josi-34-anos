@@ -155,9 +155,47 @@
     position:fixed; top:-10px; width:9px; height:9px; z-index:60; pointer-events:none;
     border-radius:2px;
   }
+
+  /* ---------- gate (tela de abertura) ---------- */
+  body.locked{ overflow:hidden; }
+  body.locked .wrap, body.locked .sparkle-layer{ display:none; }
+  .gate{
+    position:fixed; inset:0; z-index:200;
+    background: linear-gradient(160deg,#eaf6ff 0%, #d3ecfa 30%, #b7e0f5 62%, #8fcbe8 100%);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;
+  }
+  .gate-crown{ font-size:3.2rem; margin-bottom:10px; animation: bob 2.4s ease-in-out infinite; }
+  .gate h2{ color:#2c3e50; font-size:1.6rem; margin-bottom:22px; }
+  .btn-enter{
+    font-family:inherit; font-size:1.05rem; font-weight:700; color:#fff;
+    background: linear-gradient(90deg,var(--pink),var(--pink-dark));
+    border:none; border-radius:30px; padding:16px 30px; cursor:pointer;
+    box-shadow: 0 10px 24px rgba(232,67,147,.35);
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  .mute-btn{
+    position:fixed; top:16px; right:16px; z-index:60;
+    width:44px; height:44px; border-radius:50%; border:none;
+    background:rgba(255,255,255,.85); font-size:1.3rem; cursor:pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    display:none; align-items:center; justify-content:center;
+  }
 </style>
 </head>
-<body>
+<body class="locked">
+
+<div class="gate" id="gate">
+  <div>
+    <div class="gate-crown">👑</div>
+    <h2>O convite da Josi está pronto! ✨</h2>
+    <button class="btn-enter" id="enterBtn">Toque para abrir 💌</button>
+  </div>
+</div>
+<button class="mute-btn" id="muteBtn" title="Ligar/desligar música">🔊</button>
+<audio id="bgMusic" loop preload="none">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <div class="sparkle-layer" id="sparkleLayer"></div>
 <div class="wrap">
   <div class="hero">
@@ -171,8 +209,7 @@
     <div class="detail-row"><span class="ic">📅</span> Sexta-feira, <strong>25 de setembro</strong></div>
     <div class="detail-row"><span class="ic">🕗</span> Horário: <strong>19h</strong></div>
     <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--pink-dark); text-decoration:none; border-bottom:2px solid var(--pink-dark);">Miller's</a></strong> — Orlando, Florida, EUA (<strong>local pode ser alterado</strong>)</div>
-    <div class="detail-row"><span class="ic">💌</span> Confirme sua presença pra garantirmos seu lugar na mesa!</div>
-  </div>
+    </div>
   <div class="divider">✦ ✦ ✦</div>
   <div class="card">
     <h2>🏰 Dia Real no Epcot</h2>
@@ -407,6 +444,27 @@ function burstConfetti(){
     setTimeout(()=>el.remove(), dur+50);
   }
 }
+/* ---------- gate / música ---------- */
+const bgMusic = document.getElementById('bgMusic');
+const muteBtn = document.getElementById('muteBtn');
+const musicSrc = bgMusic.querySelector('source').getAttribute('src');
+const MUSIC_CONFIGURED = !!musicSrc && !musicSrc.includes('COLOQUE_AQUI');
+
+document.getElementById('enterBtn').addEventListener('click', () => {
+  document.body.classList.remove('locked');
+  document.getElementById('gate').style.display = 'none';
+  if(MUSIC_CONFIGURED){
+    bgMusic.volume = 0.6;
+    bgMusic.play().catch(()=>{ /* navegador bloqueou, tudo bem, o botão de mute ainda aparece */ });
+    muteBtn.style.display = 'flex';
+  }
+});
+
+muteBtn.addEventListener('click', () => {
+  bgMusic.muted = !bgMusic.muted;
+  muteBtn.textContent = bgMusic.muted ? '🔇' : '🔊';
+});
+
 /* ---------- init ---------- */
 document.getElementById('demoBanner').style.display = LIVE_MODE ? 'none' : 'block';
 renderGrid();
