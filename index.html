@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>34 anos da Josi 🏰✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#8FCBE8;
+    --royal:#3B6FA0;
+    --deep:#1F3B57;
+    --silver:#C7D3DB;
+    --ice:#EAF6FF;
+    --cream:#F5FAFF;
+    --ink:#1F2D3D;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Fredoka', sans-serif;
+    color:var(--ink);
+    background: linear-gradient(160deg,#0f2438 0%, #1f3b57 28%, #3b6fa0 58%, #8fcbe8 100%);
+    background-attachment:fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  h1,h2,h3{ font-family:'Baloo 2', sans-serif; margin:0; }
+
+  /* ---------- floating sparkles background ---------- */
+  .sparkle-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .sparkle{
+    position:absolute; bottom:-40px;
+    font-size:1.4rem; opacity:.85;
+    animation: floatUp linear infinite;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,.6));
+  }
+  @keyframes floatUp{
+    0%{ transform: translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:.9; }
+    90%{ opacity:.7; }
+    100%{ transform: translateY(-110vh) rotate(360deg); opacity:0; }
+  }
+
+  .wrap{ position:relative; z-index:1; max-width:880px; margin:0 auto; padding:32px 18px 80px; }
+
+  /* ---------- hero ---------- */
+  .hero{ text-align:center; padding:38px 16px 26px; }
+  .crown{ font-size:2.6rem; display:inline-block; animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform: translateY(0) rotate(-4deg);} 50%{ transform: translateY(-10px) rotate(4deg);} }
+  .hero h1{
+    color:#fff; font-size: clamp(2rem, 6vw, 3.2rem); font-weight:800;
+    text-shadow: 0 4px 18px rgba(0,0,0,.25);
+    opacity:0; transform: scale(.7);
+    animation: popIn .8s cubic-bezier(.34,1.56,.64,1) .15s forwards;
+  }
+  .hero .sub{
+    color:#eaf6ff; font-size:1.15rem; margin-top:10px; font-weight:500;
+    opacity:0; animation: fadeUp .8s ease .5s forwards;
+  }
+  @keyframes popIn{ to{ opacity:1; transform:scale(1); } }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---------- cards ---------- */
+  .card{
+    background: var(--cream);
+    border-radius: 26px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    padding: 30px clamp(18px,4vw,42px);
+    margin: 26px 0;
+    opacity:0; transform: translateY(24px);
+    animation: fadeUp .7s ease forwards;
+  }
+  .card:nth-of-type(2){ animation-delay:.15s; }
+  .card:nth-of-type(3){ animation-delay:.3s; }
+
+  .card h2{ color:var(--royal); font-size:1.6rem; display:flex; align-items:center; gap:10px; }
+  .card p{ line-height:1.55; font-size:1.03rem; }
+
+  .detail-row{ display:flex; gap:14px; align-items:center; margin:14px 0; font-size:1.05rem; flex-wrap:wrap; }
+  .detail-row .ic{ font-size:1.4rem; }
+  .placeholder{
+    background: #fff3cd; border:2px dashed #e0a800; color:#7a5c00;
+    padding:3px 10px; border-radius:10px; font-weight:600;
+  }
+
+  .divider{
+    text-align:center; margin:6px 0 18px; color:#fff; font-size:1.4rem; letter-spacing:6px; opacity:.85;
+  }
+
+  /* ---------- princess grid ---------- */
+  .rules-box{
+    background:#eaf6ff; border-radius:18px; padding:16px 20px; margin:16px 0 22px;
+    border:2px solid #b8dff2; font-size:.98rem; line-height:1.5;
+  }
+  .progress-wrap{ margin: 8px 0 24px; }
+  .progress-label{ font-size:.92rem; color:#4a6f8a; margin-bottom:6px; font-weight:600; }
+  .progress-bar{ background:#e3edf4; border-radius:20px; height:14px; overflow:hidden; }
+  .progress-fill{ height:100%; background: linear-gradient(90deg,var(--sky),var(--royal)); width:0%; transition: width .6s ease; }
+
+  .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:16px; }
+  .p-card{
+    position:relative; border-radius:18px; padding:16px 12px 14px; text-align:center;
+    background:#fff; border:2px solid #dbe9f2; cursor:pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .p-card:hover{ transform: translateY(-6px) scale(1.03); box-shadow: 0 12px 22px rgba(0,0,0,.18); }
+  .p-card.taken{ cursor:default; opacity:.55; filter:grayscale(.35); }
+  .p-card.taken:hover{ transform:none; box-shadow:none; }
+  .p-avatar{
+    width:60px; height:60px; border-radius:50%; margin:0 auto;
+    display:flex; align-items:center; justify-content:center; font-size:1.7rem;
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,.7), 0 4px 10px rgba(0,0,0,.16);
+  }
+  .p-avatar svg{ width:30px; height:30px; overflow:visible; }
+  .p-name{ font-weight:700; margin-top:8px; font-size:.95rem; color:var(--ink); }
+  .p-swatches{ display:flex; justify-content:center; gap:5px; margin-top:8px; }
+  .swatch{ width:16px; height:16px; border-radius:50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+  .p-taken-tag{
+    margin-top:8px; font-size:.78rem; background:var(--royal); color:#fff;
+    border-radius:10px; padding:3px 8px; display:inline-block;
+  }
+  .p-taken-tag.host-tag{ background: linear-gradient(90deg,#d4af37,#f0cf6b); color:#4a3200; font-weight:700; }
+  .checkmark{ position:absolute; top:6px; right:8px; color:#28a745; font-size:1.1rem; }
+
+  /* ---------- modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(30,10,40,.55); backdrop-filter: blur(2px);
+    display:none; align-items:center; justify-content:center; z-index:50; padding:16px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:#fff; border-radius:22px; padding:28px 26px; max-width:360px; width:100%;
+    text-align:center; box-shadow:0 20px 50px rgba(0,0,0,.35);
+    animation: popIn .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .modal h3{ color:var(--royal); margin-bottom:6px; }
+  .modal input{
+    width:100%; padding:10px 12px; border-radius:12px; border:2px solid #b8dff2;
+    font-family:inherit; font-size:1rem; margin:14px 0; outline:none;
+  }
+  .modal input:focus{ border-color:var(--royal); }
+  .modal-btns{ display:flex; gap:10px; margin-top:6px; }
+  .btn{
+    flex:1; padding:10px 14px; border-radius:12px; border:none; font-family:inherit;
+    font-weight:600; font-size:.95rem; cursor:pointer; transition: transform .15s ease;
+  }
+  .btn:active{ transform: scale(.96); }
+  .btn-primary{ background: linear-gradient(90deg,var(--sky),var(--royal)); color:#fff; }
+  .btn-secondary{ background:#f1eef2; color:var(--ink); }
+  .modal-msg{ font-size:.9rem; min-height:18px; margin-top:4px; font-weight:600; }
+  .modal-msg.err{ color:#c0392b; }
+  .modal-msg.ok{ color:#1e824c; }
+
+  .banner{
+    background:#fff3cd; border:2px dashed #e0a800; color:#7a5c00; border-radius:14px;
+    padding:10px 16px; font-size:.9rem; margin-bottom:16px; text-align:center;
+  }
+
+  footer{ text-align:center; color:#eaf6ff; font-size:.9rem; margin-top:30px; opacity:.9; }
+
+  /* confetti */
+  .confetti-piece{
+    position:fixed; top:-10px; width:9px; height:9px; z-index:60; pointer-events:none;
+    border-radius:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="sparkle-layer" id="sparkleLayer"></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="crown">👑</div>
+    <h1>Josi está fazendo 34 anos!</h1>
+    <div class="sub">E vamos comemorar do jeito mais mágico possível: na Disney! ✨🏰</div>
+  </div>
+
+  <div class="card">
+    <h2>🎂 Jantar de Aniversário</h2>
+    <p>Um jantar especial para celebrar mais um ano da nossa Josi, rodeados de quem a gente ama — na cidade mais mágica do mundo.</p>
+    <div class="detail-row"><span class="ic">📅</span> Sexta-feira, <strong>25 de setembro</strong></div>
+    <div class="detail-row"><span class="ic">🕗</span> Horário: <strong>19h</strong></div>
+    <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--royal); text-decoration:none; border-bottom:2px solid var(--royal);">Miller's</a></strong> — Orlando, Florida, EUA <span class="placeholder">local pode ser alterado</span></div>
+    <div class="detail-row"><span class="ic">💌</span> Confirme sua presença pra garantirmos seu lugar na mesa!</div>
+  </div>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <div class="card">
+    <h2>🏰 Dia Real no Epcot</h2>
+    <p>No dia seguinte, <strong>sábado, 26 de setembro</strong>, vamos todos juntos para o Epcot! E como adulto não pode ir fantasiado no parque 😅, a brincadeira vai ser outra:</p>
+
+    <div class="rules-box">
+      💫 <strong>Cada convidado escolhe UMA personagem Disney</strong> e no dia do Epcot usa roupas nas <strong>cores e acessórios</strong> dela — sem fantasia, só estilo!<br><br>
+      🔒 <strong>Regra de ouro:</strong> cada personagem só pode ser escolhida por uma pessoa. É por ordem de chegada — quem escolhe primeiro garante a personagem, e ela trava automaticamente pros próximos.<br><br>
+      👑 A <strong>Cinderela</strong> já é a personagem da Josi (a aniversariante!), então ela começa reservada.
+    </div>
+
+    <div id="demoBanner" class="banner" style="display:none;">
+      🔧 Modo demonstração: as escolhas abaixo ainda não estão conectadas à planilha real, então não ficam salvas pra outras pessoas verem. Veja o arquivo <strong>COMO-CONFIGURAR.md</strong> pra ativar o modo ao vivo.
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label" id="progressLabel">Carregando personagens...</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="grid" id="princessGrid"></div>
+  </div>
+
+  <footer>
+    Feito com 💖 para a Josi · Confirme presença e escolha sua personagem até <strong>18/09</strong>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Escolher personagem</h3>
+    <p style="margin:0;font-size:.92rem;color:#7a5c8a;" id="modalSub"></p>
+    <input type="text" id="guestName" placeholder="Seu nome" maxlength="40" autocomplete="off">
+    <div class="modal-msg" id="modalMsg"></div>
+    <div class="modal-btns">
+      <button class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+      <button class="btn btn-primary" id="confirmBtn">Confirmar 👑</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO
+   Troque a URL abaixo pela URL do seu App da Web do Google
+   Apps Script (veja COMO-CONFIGURAR.md). Enquanto não trocar,
+   a página funciona em "modo demonstração" (não salva de
+   verdade, só localmente na tela de quem está vendo).
+   ========================================================= */
+const CONFIG = {
+  API_URL: "COLOQUE_AQUI_A_URL_DO_SEU_APP_SCRIPT"
+};
+const LIVE_MODE = CONFIG.API_URL.startsWith("http");
+
+const ICON_TEACUP = "<svg viewBox='0 0 24 24'><ellipse cx='11' cy='19' rx='9' ry='1.7' fill='#E7ECEF'/><path d='M4 9h11a1 1 0 0 1 1 1v3.5a6 6 0 0 1-6 6h-.5a6 6 0 0 1-6-6V10a1 1 0 0 1 1-1z' fill='#FFFFFF'/><ellipse cx='9.5' cy='9.9' rx='5.4' ry='1.2' fill='#3B2314'/><path d='M15.3 11h1.5a2 2 0 0 1 0 4h-1.3' fill='none' stroke='#FFFFFF' stroke-width='1.6' stroke-linecap='round'/><path d='M7.2 5c0 .8-.8 1.1-.8 1.9s.8 1.1.8 1.9M10.2 5c0 .8-.8 1.1-.8 1.9s.8 1.1.8 1.9' stroke='#FFFFFF' stroke-width='1.1' fill='none' stroke-linecap='round'/></svg>";
+const ICON_BED = "<svg viewBox='0 0 24 24'><rect x='3' y='13.5' width='18' height='4.5' rx='1' fill='#E8A0B4'/><rect x='4.5' y='9' width='5' height='4.8' rx='1.2' fill='#FFFFFF'/><rect x='3' y='12.3' width='18' height='1.6' rx='0.8' fill='#8B5A2E'/><path d='M3 18v2M21 18v2' stroke='#8B5A2E' stroke-width='1.6' stroke-linecap='round'/></svg>";
+const ICON_MINNIE = "<svg viewBox='0 0 24 24'><circle cx='12' cy='15.5' r='6.5' fill='black'/><circle cx='5.8' cy='7' r='4' fill='black'/><circle cx='18.2' cy='7' r='4' fill='black'/><path d='M7.3 9.6 12 7.4 16.7 9.6 12 12 Z' fill='#E63950'/><circle cx='12' cy='9.6' r='1.2' fill='#fff'/></svg>";
+const ICON_TOWER = "<svg viewBox='0 0 24 24'><rect x='8' y='9' width='8' height='12' rx='1' fill='#EDE3D3'/><path d='M8.5 21c.6-3.4.9-6.8 0-10.4' stroke='#8A5A3B' stroke-width='1' fill='none' stroke-linecap='round'/><circle cx='8.7' cy='13.5' r='0.6' fill='#3C7A3E'/><circle cx='8.2' cy='17' r='0.6' fill='#3C7A3E'/><circle cx='8.9' cy='19.6' r='0.6' fill='#3C7A3E'/><rect x='9.8' y='10.6' width='4.4' height='1.1' fill='#8A5A3B'/><path d='M9.9 7.6a2.1 2.1 0 0 1 4.2 0v2h-4.2z' fill='#FFFFFF' stroke='#8A5A3B' stroke-width='0.5'/><path d='M6.5 9l5.5-3.4L17.5 9z' fill='#8E5FA3'/><rect x='11.3' y='3.8' width='1.4' height='1.8' fill='#8E5FA3'/></svg>";
+const ICON_HAT = "<svg viewBox='0 0 24 24'><ellipse cx='11.5' cy='15.6' rx='9.3' ry='2.5' fill='#7A4B24'/><path d='M6.8 15.2c0-4 2.2-7 4.9-7s4.9 3 4.9 7' fill='#8B5A2E'/><rect x='7.2' y='13.5' width='8.6' height='1.7' rx='0.6' fill='#241C15'/><ellipse cx='11.5' cy='14.35' rx='1.2' ry='0.85' fill='#D9A441'/></svg>";
+const ICON_GLASSES = "<svg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='7.3' cy='12.5' r='4'/><circle cx='16.7' cy='12.5' r='4'/><path d='M11.3 12.5h1.4'/><path d='M3.3 11.6 1.7 11.1'/><path d='M20.7 11.6 22.3 11.1'/></svg>";
+const LEAF = "M12 3c1.8 1 1.8 3.6 0 5.4-1.8-1.8-1.8-4.4 0-5.4z";
+const ICON_LILO_PATTERN = `<svg viewBox='0 0 24 24' fill='#F3ECD9'><path d='${LEAF}' transform='rotate(10 12 5.7)'/><path d='${LEAF}' transform='translate(-6.5 4.5) rotate(-35 12 5.7)'/><path d='${LEAF}' transform='translate(6.5 4.5) rotate(35 12 5.7)'/><path d='${LEAF}' transform='translate(-2.5 11.5) rotate(110 12 5.7)'/><path d='${LEAF}' transform='translate(4.5 11.8) rotate(-100 12 5.7)'/></svg>`;
+
+const HOST_NAME = "Josi";
+
+const PRINCESSES = [
+  { name:"Cinderela",      colors:["#8FCBE8","#E8ECEF","#C7D3DB"], icon:"🥿" },
+  { name:"Branca de Neve", colors:["#F2C230","#2B4C8C","#C1272D"], icon:"🍎" },
+  { name:"Aurora",         colors:["#E85B92","#D4AF37"],           icon:"🛏️", iconSvg: ICON_BED },
+  { name:"Ariel",          colors:["#2EC4B6","#7B4FA0","#8B1E3F"], icon:"🧜‍♀️" },
+  { name:"Bela",           colors:["#F4C430","#4A7BAE"],           icon:"☕", iconSvg: ICON_TEACUP },
+  { name:"Jasmine",        colors:["#00A8A8","#D9A441"],           icon:"🧞" },
+  { name:"Pocahontas",     colors:["#C1652F","#4A6B3A","#D9C29C"], icon:"🪶" },
+  { name:"Mulan",          colors:["#C41E3A","#D4AF37","#F4A0C0"], icon:"⚔️" },
+  { name:"Tiana",          colors:["#0B6E4F","#D4AF37"],           icon:"🐸" },
+  { name:"Rapunzel",       colors:["#8E5FA3","#F2A6C1"],           icon:"🗼", iconSvg: ICON_TOWER },
+  { name:"Merida",         colors:["#2E7D6B","#5A8F3C","#C1502E"], icon:"🏹" },
+  { name:"Moana",          colors:["#E15D3E","#F4A93B","#1CA6A6"], icon:"🌊" },
+  { name:"Elsa",           colors:["#A9D6E5","#FFFFFF","#C7D3DB"], icon:"❄️" },
+  { name:"Anna",           colors:["#0F5C3D","#C9457A","#8FCBE8"], icon:"🎀" },
+  { name:"Minnie",         colors:["#C1272D","#FFFFFF","#1A1A1A"], icon:"🐭", iconSvg: ICON_MINNIE },
+  { name:"Margarida",      colors:["#9B7FC7","#FFFFFF"],           icon:"🐥" },
+  { name:"Jessie",         colors:["#C1272D","#F2C230","#8B5A2B"], icon:"🤠", iconSvg: ICON_HAT },
+  { name:"Mirabel",        colors:["#F2B705","#E8743B","#F2A6C1"], icon:"👓", iconSvg: ICON_GLASSES },
+  { name:"Lilo",           colors:["#C1272D","#2EC4B6","#F2C230"], icon:"🌺", iconSvg: ICON_LILO_PATTERN, bgOverride:"#C1272D" },
+  { name:"Sininho",        colors:["#3CB371","#DFF2A0"],           icon:"🧚‍♀️" },
+];
+
+let state = {}; // name -> chosenBy or ""
+PRINCESSES.forEach(p => state[p.name] = "");
+state["Cinderela"] = HOST_NAME; // já reservada para a aniversariante
+let pendingPrincess = null;
+
+/* ---------- sparkles background ---------- */
+(function sparkles(){
+  const layer = document.getElementById('sparkleLayer');
+  const glyphs = ['✦','✨','⭐','💫'];
+  for(let i=0;i<26;i++){
+    const s = document.createElement('div');
+    s.className='sparkle';
+    s.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+    s.style.left = Math.random()*100+'vw';
+    s.style.animationDuration = (10+Math.random()*14)+'s';
+    s.style.animationDelay = (Math.random()*14)+'s';
+    s.style.fontSize = (0.9+Math.random()*1.3)+'rem';
+    layer.appendChild(s);
+  }
+})();
+
+/* ---------- render grid ---------- */
+function renderGrid(){
+  const grid = document.getElementById('princessGrid');
+  grid.innerHTML = '';
+  let takenCount = 0;
+  PRINCESSES.forEach(p => {
+    const chosenBy = state[p.name];
+    if(chosenBy) takenCount++;
+    const card = document.createElement('div');
+    card.className = 'p-card' + (chosenBy ? ' taken' : '');
+    const gradient = p.bgOverride || (p.colors.length > 1
+      ? `linear-gradient(135deg, ${p.colors[0]}, ${p.colors[p.colors.length-1]})`
+      : p.colors[0]);
+    const isHost = chosenBy === HOST_NAME;
+    const tag = !chosenBy ? '' : isHost
+      ? `<div class="p-taken-tag host-tag">👑 É da ${escapeHtml(HOST_NAME)}!</div>`
+      : `<div class="p-taken-tag">Escolhida por ${escapeHtml(chosenBy)}</div>`;
+    card.innerHTML = `
+      ${chosenBy ? '<span class="checkmark">✓</span>' : ''}
+      <div class="p-avatar" style="background:${gradient}">${p.iconSvg || p.icon}</div>
+      <div class="p-name">${p.name}</div>
+      <div class="p-swatches">${p.colors.map(c=>`<span class="swatch" style="background:${c}"></span>`).join('')}</div>
+      ${tag}
+    `;
+    if(!chosenBy){
+      card.addEventListener('click', () => openModal(p.name));
+    }
+    grid.appendChild(card);
+  });
+  document.getElementById('progressLabel').textContent =
+    `${takenCount} de ${PRINCESSES.length} personagens já escolhidas`;
+  document.getElementById('progressFill').style.width =
+    Math.round((takenCount/PRINCESSES.length)*100) + '%';
+}
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+/* ---------- modal ---------- */
+const overlay = document.getElementById('modalOverlay');
+function openModal(princessName){
+  pendingPrincess = princessName;
+  const p = PRINCESSES.find(pr => pr.name === princessName);
+  document.getElementById('modalTitle').textContent = `Escolher ${princessName} ${p ? p.icon : '👑'}`;
+  document.getElementById('modalSub').textContent = 'Digite seu nome pra confirmar sua escolha:';
+  document.getElementById('guestName').value = '';
+  document.getElementById('modalMsg').textContent = '';
+  document.getElementById('modalMsg').className = 'modal-msg';
+  overlay.classList.add('open');
+  setTimeout(()=>document.getElementById('guestName').focus(),100);
+}
+function closeModal(){ overlay.classList.remove('open'); pendingPrincess = null; }
+document.getElementById('cancelBtn').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
+
+document.getElementById('confirmBtn').addEventListener('click', async () => {
+  const name = document.getElementById('guestName').value.trim();
+  const msg = document.getElementById('modalMsg');
+  if(!name){
+    msg.textContent = 'Digite seu nome primeiro!';
+    msg.className = 'modal-msg err';
+    return;
+  }
+  msg.textContent = 'Confirmando...';
+  msg.className = 'modal-msg';
+
+  const result = await choosePrincess(name, pendingPrincess);
+  if(result.success){
+    msg.textContent = `🎉 ${pendingPrincess} é sua, ${name}!`;
+    msg.className = 'modal-msg ok';
+    burstConfetti();
+    renderGrid();
+    setTimeout(closeModal, 1300);
+  } else {
+    msg.textContent = result.error || 'Não foi possível confirmar. Tente novamente.';
+    msg.className = 'modal-msg err';
+    renderGrid();
+  }
+});
+
+/* ---------- backend calls ---------- */
+async function fetchStatus(){
+  if(!LIVE_MODE) return;
+  try{
+    const res = await fetch(CONFIG.API_URL, { method:'GET' });
+    const data = await res.json();
+    (data.princesses || []).forEach(p => { state[p.name] = p.chosenBy || ''; });
+    state["Cinderela"] = HOST_NAME; // regra fixa: Cinderela é sempre da Josi
+    renderGrid();
+  }catch(err){
+    console.warn('Não foi possível buscar status da planilha', err);
+  }
+}
+
+async function choosePrincess(name, princess){
+  if(princess === "Cinderela"){
+    return { success:false, error:`Cinderela já é da ${HOST_NAME} — escolhe outra personagem!` };
+  }
+  if(!LIVE_MODE){
+    if(state[princess]) return { success:false, error:`${princess} já foi escolhida por ${state[princess]}.` };
+    state[princess] = name;
+    return { success:true };
+  }
+  try{
+    const res = await fetch(CONFIG.API_URL, {
+      method:'POST',
+      body: JSON.stringify({ action:'choose', name, princess })
+    });
+    return await res.json();
+  }catch(err){
+    return { success:false, error:'Erro de conexão. Tente novamente em alguns segundos.' };
+  }
+}
+
+/* ---------- confetti ---------- */
+function burstConfetti(){
+  const colors = ['#3B6FA0','#8FCBE8','#C7D3DB','#1F3B57','#FFFFFF'];
+  for(let i=0;i<40;i++){
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.left = (45 + Math.random()*10) + 'vw';
+    el.style.background = colors[Math.floor(Math.random()*colors.length)];
+    el.style.transform = `rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(el);
+    const dx = (Math.random()-0.5)*500;
+    const dy = 400 + Math.random()*400;
+    const dur = 900 + Math.random()*700;
+    el.animate([
+      { transform: el.style.transform + ' translate(0,0)', opacity:1 },
+      { transform: `translate(${dx}px, ${dy}px) rotate(${Math.random()*720}deg)`, opacity:0 }
+    ], { duration: dur, easing:'cubic-bezier(.25,.7,.4,1)' });
+    setTimeout(()=>el.remove(), dur+50);
+  }
+}
+
+/* ---------- init ---------- */
+document.getElementById('demoBanner').style.display = LIVE_MODE ? 'none' : 'block';
+renderGrid();
+if(LIVE_MODE){
+  fetchStatus();
+  setInterval(fetchStatus, 20000);
+}
+</script>
+</body>
+</html>
