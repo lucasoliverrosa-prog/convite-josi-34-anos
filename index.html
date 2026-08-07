@@ -8,20 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sky:#8FCBE8;
-    --royal:#3B6FA0;
-    --deep:#1F3B57;
-    --silver:#C7D3DB;
-    --ice:#EAF6FF;
-    --cream:#F5FAFF;
-    --ink:#1F2D3D;
+    --pink:#ff6fa5;
+    --pink-dark:#e84393;
+    --purple:#8e5fa3;
+    --teal:#1ca6a6;
+    --gold:#f0b429;
+    --cream:#fff8f0;
+    --ink:#3a2a3f;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     font-family:'Fredoka', sans-serif;
     color:var(--ink);
-    background: linear-gradient(160deg,#0f2438 0%, #1f3b57 28%, #3b6fa0 58%, #8fcbe8 100%);
+    background: linear-gradient(160deg,#3a1c5a 0%, #8e5fa3 30%, #e84393 62%, #ff9f6f 100%);
     background-attachment:fixed;
     min-height:100vh;
     overflow-x:hidden;
@@ -57,7 +57,7 @@
     animation: popIn .8s cubic-bezier(.34,1.56,.64,1) .15s forwards;
   }
   .hero .sub{
-    color:#eaf6ff; font-size:1.15rem; margin-top:10px; font-weight:500;
+    color:#fff0f7; font-size:1.15rem; margin-top:10px; font-weight:500;
     opacity:0; animation: fadeUp .8s ease .5s forwards;
   }
   @keyframes popIn{ to{ opacity:1; transform:scale(1); } }
@@ -76,7 +76,7 @@
   .card:nth-of-type(2){ animation-delay:.15s; }
   .card:nth-of-type(3){ animation-delay:.3s; }
 
-  .card h2{ color:var(--royal); font-size:1.6rem; display:flex; align-items:center; gap:10px; }
+  .card h2{ color:var(--pink-dark); font-size:1.6rem; display:flex; align-items:center; gap:10px; }
   .card p{ line-height:1.55; font-size:1.03rem; }
 
   .detail-row{ display:flex; gap:14px; align-items:center; margin:14px 0; font-size:1.05rem; flex-wrap:wrap; }
@@ -92,18 +92,18 @@
 
   /* ---------- princess grid ---------- */
   .rules-box{
-    background:#eaf6ff; border-radius:18px; padding:16px 20px; margin:16px 0 22px;
-    border:2px solid #b8dff2; font-size:.98rem; line-height:1.5;
+    background:#fbeaff; border-radius:18px; padding:16px 20px; margin:16px 0 22px;
+    border:2px solid #e8c6f3; font-size:.98rem; line-height:1.5;
   }
   .progress-wrap{ margin: 8px 0 24px; }
-  .progress-label{ font-size:.92rem; color:#4a6f8a; margin-bottom:6px; font-weight:600; }
-  .progress-bar{ background:#e3edf4; border-radius:20px; height:14px; overflow:hidden; }
-  .progress-fill{ height:100%; background: linear-gradient(90deg,var(--sky),var(--royal)); width:0%; transition: width .6s ease; }
+  .progress-label{ font-size:.92rem; color:#7a5c8a; margin-bottom:6px; font-weight:600; }
+  .progress-bar{ background:#eee; border-radius:20px; height:14px; overflow:hidden; }
+  .progress-fill{ height:100%; background: linear-gradient(90deg,var(--pink),var(--purple)); width:0%; transition: width .6s ease; }
 
   .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:16px; }
   .p-card{
     position:relative; border-radius:18px; padding:16px 12px 14px; text-align:center;
-    background:#fff; border:2px solid #dbe9f2; cursor:pointer;
+    background:#fff; border:2px solid #f0e0ea; cursor:pointer;
     transition: transform .25s ease, box-shadow .25s ease;
   }
   .p-card:hover{ transform: translateY(-6px) scale(1.03); box-shadow: 0 12px 22px rgba(0,0,0,.18); }
@@ -115,11 +115,12 @@
     box-shadow: inset 0 0 0 3px rgba(255,255,255,.7), 0 4px 10px rgba(0,0,0,.16);
   }
   .p-avatar svg{ width:30px; height:30px; overflow:visible; }
+  .p-avatar img{ width:100%; height:100%; object-fit:cover; border-radius:50%; }
   .p-name{ font-weight:700; margin-top:8px; font-size:.95rem; color:var(--ink); }
   .p-swatches{ display:flex; justify-content:center; gap:5px; margin-top:8px; }
   .swatch{ width:16px; height:16px; border-radius:50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
   .p-taken-tag{
-    margin-top:8px; font-size:.78rem; background:var(--royal); color:#fff;
+    margin-top:8px; font-size:.78rem; background:var(--purple); color:#fff;
     border-radius:10px; padding:3px 8px; display:inline-block;
   }
   .p-taken-tag.host-tag{ background: linear-gradient(90deg,#d4af37,#f0cf6b); color:#4a3200; font-weight:700; }
@@ -136,19 +137,19 @@
     text-align:center; box-shadow:0 20px 50px rgba(0,0,0,.35);
     animation: popIn .35s cubic-bezier(.34,1.56,.64,1);
   }
-  .modal h3{ color:var(--royal); margin-bottom:6px; }
+  .modal h3{ color:var(--pink-dark); margin-bottom:6px; }
   .modal input{
-    width:100%; padding:10px 12px; border-radius:12px; border:2px solid #b8dff2;
+    width:100%; padding:10px 12px; border-radius:12px; border:2px solid #e8c6f3;
     font-family:inherit; font-size:1rem; margin:14px 0; outline:none;
   }
-  .modal input:focus{ border-color:var(--royal); }
+  .modal input:focus{ border-color:var(--pink); }
   .modal-btns{ display:flex; gap:10px; margin-top:6px; }
   .btn{
     flex:1; padding:10px 14px; border-radius:12px; border:none; font-family:inherit;
     font-weight:600; font-size:.95rem; cursor:pointer; transition: transform .15s ease;
   }
   .btn:active{ transform: scale(.96); }
-  .btn-primary{ background: linear-gradient(90deg,var(--sky),var(--royal)); color:#fff; }
+  .btn-primary{ background: linear-gradient(90deg,var(--pink),var(--pink-dark)); color:#fff; }
   .btn-secondary{ background:#f1eef2; color:var(--ink); }
   .modal-msg{ font-size:.9rem; min-height:18px; margin-top:4px; font-weight:600; }
   .modal-msg.err{ color:#c0392b; }
@@ -159,7 +160,7 @@
     padding:10px 16px; font-size:.9rem; margin-bottom:16px; text-align:center;
   }
 
-  footer{ text-align:center; color:#eaf6ff; font-size:.9rem; margin-top:30px; opacity:.9; }
+  footer{ text-align:center; color:#fff0f7; font-size:.9rem; margin-top:30px; opacity:.9; }
 
   /* confetti */
   .confetti-piece{
@@ -185,7 +186,7 @@
     <p>Um jantar especial para celebrar mais um ano da nossa Josi, rodeados de quem a gente ama — na cidade mais mágica do mundo.</p>
     <div class="detail-row"><span class="ic">📅</span> Sexta-feira, <strong>25 de setembro</strong></div>
     <div class="detail-row"><span class="ic">🕗</span> Horário: <strong>19h</strong></div>
-    <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--royal); text-decoration:none; border-bottom:2px solid var(--royal);">Miller's</a></strong> — Orlando, Florida, EUA <span class="placeholder">local pode ser alterado</span></div>
+    <div class="detail-row"><span class="ic">📍</span> Local: <strong><a href="https://maps.app.goo.gl/iiPa3xDDumwNTVD79" target="_blank" style="color:var(--pink-dark); text-decoration:none; border-bottom:2px solid var(--pink-dark);">Miller's</a></strong> — Orlando, Florida, EUA <span class="placeholder">local pode ser alterado</span></div>
     <div class="detail-row"><span class="ic">💌</span> Confirme sua presença pra garantirmos seu lugar na mesa!</div>
   </div>
 
@@ -240,7 +241,7 @@
    verdade, só localmente na tela de quem está vendo).
    ========================================================= */
 const CONFIG = {
-  API_URL: "COLOQUE_AQUI_A_URL_DO_SEU_APP_SCRIPT"
+  API_URL: "https://script.google.com/macros/s/AKfycbz_TYH-0rAYjT11VEq_M77bfElBRG-7SVXaMx6ebK6Xic50h6tHkiCI6WH7QSUXRlmSmA/exec"
 };
 const LIVE_MODE = CONFIG.API_URL.startsWith("http");
 
@@ -255,6 +256,10 @@ const ICON_LILO_PATTERN = `<svg viewBox='0 0 24 24' fill='#F3ECD9'><path d='${LE
 
 const HOST_NAME = "Josi";
 
+/* Pra colocar uma imagem PNG de cada personagem, adicione um campo
+   img: "URL_DA_IMAGEM" em qualquer linha abaixo. Exemplo:
+   { name:"Cinderela", colors:[...], img: "https://i.imgur.com/xxxxx.png" }
+   Sem o campo "img", o círculo fica só na cor mesmo (como está agora). */
 const PRINCESSES = [
   { name:"Cinderela",      colors:["#8FCBE8","#E8ECEF","#C7D3DB"], icon:"🥿" },
   { name:"Branca de Neve", colors:["#F2C230","#2B4C8C","#C1272D"], icon:"🍎" },
@@ -318,7 +323,7 @@ function renderGrid(){
       : `<div class="p-taken-tag">Escolhida por ${escapeHtml(chosenBy)}</div>`;
     card.innerHTML = `
       ${chosenBy ? '<span class="checkmark">✓</span>' : ''}
-      <div class="p-avatar" style="background:${gradient}">${p.iconSvg || p.icon}</div>
+      <div class="p-avatar" style="background:${gradient}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : ''}</div>
       <div class="p-name">${p.name}</div>
       <div class="p-swatches">${p.colors.map(c=>`<span class="swatch" style="background:${c}"></span>`).join('')}</div>
       ${tag}
@@ -345,7 +350,7 @@ const overlay = document.getElementById('modalOverlay');
 function openModal(princessName){
   pendingPrincess = princessName;
   const p = PRINCESSES.find(pr => pr.name === princessName);
-  document.getElementById('modalTitle').textContent = `Escolher ${princessName} ${p ? p.icon : '👑'}`;
+  document.getElementById('modalTitle').textContent = `Escolher ${princessName} 👑`;
   document.getElementById('modalSub').textContent = 'Digite seu nome pra confirmar sua escolha:';
   document.getElementById('guestName').value = '';
   document.getElementById('modalMsg').textContent = '';
@@ -418,7 +423,7 @@ async function choosePrincess(name, princess){
 
 /* ---------- confetti ---------- */
 function burstConfetti(){
-  const colors = ['#3B6FA0','#8FCBE8','#C7D3DB','#1F3B57','#FFFFFF'];
+  const colors = ['#ff6fa5','#f0b429','#1ca6a6','#8e5fa3','#ff9f6f'];
   for(let i=0;i<40;i++){
     const el = document.createElement('div');
     el.className = 'confetti-piece';
